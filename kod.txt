@@ -1,0 +1,28 @@
+from machine import Pin
+import time
+import urandom
+
+led = Pin(15, Pin.OUT)
+button = Pin(14, Pin.IN, Pin.PULL_UP)
+
+print("Připrav se...")
+
+while True:
+    led.off()
+    delay = urandom.uniform(2, 5)
+    time.sleep(delay)
+
+    while button.value() == 0:
+        pass
+
+    print("TEĎ!")
+    led.on()
+    start_time = time.ticks_ms()
+
+    while button.value() == 1:
+        pass
+
+    reaction_time = time.ticks_diff(time.ticks_ms(), start_time)
+    print(f"Tvoje reakce: {reaction_time} ms")
+
+    time.sleep(2)
