@@ -1,1 +1,1 @@
-# pico-v1
+Zadání bylo lehké. Nic mě nezaskočilo.
